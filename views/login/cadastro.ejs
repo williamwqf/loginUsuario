@@ -14,7 +14,15 @@
   <body class="text-center">    
     <main class="form-signin">
       <h1 class="h3 mb-3 fw-normal">Cadastre-se</h1>
-      
+
+      <ul>
+        <% if (!errors.isEmpty()) { %>
+          <% errors.forEach((errors)=> { %>
+            <li><%= errors.msg %></li>
+          <% }) %>
+        <% } %>
+      </ul>
+
       <form method="POST" action="/login/cadastro">                
           <label for="inputEmail" class="visually-hidden">E-mail</label>
           <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Digite seu e-mail" required autofocus>
@@ -27,7 +35,7 @@
           
           <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar agora!</button>          
         </form>
-        
+
         <p class="mt-5 mb-3 text-muted">&copy; NextDigital 2021</p>     
     </main>
   </body>
