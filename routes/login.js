@@ -14,7 +14,9 @@ const cadastroValidacoes = [
     .withMessage('Senha deve conter no mínimo 5 caracteres'),
     body('confirm-password')
     .isLength({ min: 5 })
-    .withMessage('Senha deve conter no mínimo 5 caracteres'),
+    .withMessage('Senha deve conter no mínimo 5 caracteres')
+    .equals('password')
+    .withMessage('Senha e Confirmação da Senha devem ser iguais'),
 ]
 
 

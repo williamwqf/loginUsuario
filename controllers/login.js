@@ -9,13 +9,12 @@ const cadastro = (req, res) => {
   res.render('login/cadastro');
 };
 
-const novoCadastro = (req, res, next) => {
-  const errors = validationResult(req);
+const novoCadastro = (req, res) => {
 
-  console.log(errors);
+  const errors = validationResult(req); 
 
   if (!errors.isEmpty()) {
-      return res.render('/login/cadastro', errors);
+      return res.render('login/cadastro', errors);
   }
 
   const usuarioDoFormulario = { 
