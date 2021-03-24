@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const model = require('../models/usuarios');
 
 const index = (req, res) => {
@@ -9,7 +10,14 @@ const cadastro = (req, res) => {
 };
 
 const novoCadastro = (req, res) => {
-  console.log(req.body);
+  const errors = validationResult(req);
+
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+      return res.render('login/novoCadastro', errors);
+  }
+
   const usuarioDoFormulario = { 
     email: req.body.email, 
     password: req.body.password,
